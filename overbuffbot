@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+import scrapy
+
+
+class OverbuffbotSpider(scrapy.Spider):
+	name = 'overbuffbot'
+	allowed_domains = ['www.overbuff.com/rankings']
+	start_urls = ['https://www.overbuff.com/rankings//']
+
+	def parse(self, response):
+		battletags = response.css('a::attr(href)').extract()
+		for item in zip(battletags):
+			scraped_info = {
+				'username' : item[0]
+			}
+		yield scraped_info
