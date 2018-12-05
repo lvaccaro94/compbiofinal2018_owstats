@@ -5,3 +5,5 @@ print(t100sheet.sheet_names)
 
 t100df=t100sheet.parse('Sheet1')
 print(t100df)
+
+t100gen=t100df.iterrows()
