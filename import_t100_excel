@@ -1,0 +1,7 @@
+import pandas as pd
+t100='overbufft100_edited.xlsx'
+t100sheet=pd.ExcelFile(t100)
+print(t100sheet.sheet_names)
+
+t100df=t100sheet.parse('Sheet1')
+print(t100df)
