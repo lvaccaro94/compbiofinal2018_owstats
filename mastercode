@@ -1,0 +1,29 @@
+import pandas as pd
+import json
+import over_stats
+import numpy
+#import required packages
+
+t100='overbufft100_edited.xlsx'
+t100sheet=pd.ExcelFile(t100)
+print(t100sheet.sheet_names)
+t100df=t100sheet.parse('Sheet1')
+print(t100df)
+#create a dataframe using pandas of the excel sheet of battletags
+
+users={}
+
+def main_hero(battletag):
+	player_data=over_stats.PlayerProfile(battletag)
+	hero_list=player_data.comparison_heroes('competitive','Time Played')
+	most_played=hero_list[0]
+	time_played=player_data.comparisons('competitive','Time Played',most_played)
+	users[battletag]=most_played,time_played
+	return users
+#write the function which will grab userdata from blizzard's player database
+
+username = t100df.values
+#this is a numpy array with all the usernames converted to strings
+
+t100list=username.tolist()
+#this turns our numpy array into a list
