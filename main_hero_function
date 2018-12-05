@@ -1,6 +1,6 @@
 def main_hero(battletag):   
 	import json
-	import over-stats
+	import over_stats
 	player_data=over_stats.PlayerProfile(battletag)
 	hero_list=player_data.comparison_heroes('competitive','Time Played')
 	most_played=hero_list[0]
