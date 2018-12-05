@@ -11,6 +11,6 @@ class OverbuffbotSpider(scrapy.Spider):
 		battletags = response.css('a::attr(href)').extract()
 		for item in zip(battletags):
 			scraped_info = {
-				'username' : item[0]
+				'battletag' : item[0],
 			}
-		yield scraped_info
+			yield scraped_info
